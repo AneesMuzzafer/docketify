@@ -1,10 +1,13 @@
 import { Pressable, StyleSheet, Text } from "react-native";
+import { FAB } from "react-native-paper";
 
 const AddButton = ({ onPress }) => {
     return (
-        <Pressable style={styles.addButton} onPress={onPress}>
-            <Text style={{ fontSize: 26 }}>+</Text>
-        </Pressable>
+        <FAB
+            icon="plus"
+            style={styles.addButton}
+            onPress={onPress}
+        />
     );
 }
 
@@ -13,14 +16,6 @@ const styles = StyleSheet.create({
         position: "absolute",
         bottom: 30,
         right: 30,
-        zIndex: 10,
-        width: 60,
-        height: 60,
-        backgroundColor: "pink",
-        borderRadius: 30,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center"
     }
 });
 

@@ -12,7 +12,7 @@ export const linkSlice = createSlice({
             state.links = [...state.links, action.payload];
         },
         deleteLink: (state, action) => {
-            state.links = state.links.filter(l => l.id !== action.id);
+            state.links = state.links.filter(l => l.id !== action.payload);
         },
     },
 });

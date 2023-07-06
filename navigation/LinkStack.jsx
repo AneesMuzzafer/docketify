@@ -8,9 +8,9 @@ const Stack = createNativeStackNavigator();
 const LinkStack = () => {
     return (
         <Stack.Navigator>
-            <Stack.Screen name="LinkList" component={LinkList} />
-            <Stack.Screen name="LinkView" component={LinkView} />
-            <Stack.Screen name="LinkAdd" component={LinkAdd} />
+            <Stack.Screen name="LinkList" component={LinkList} options={{title: "Links"}}/>
+            <Stack.Screen name="LinkView" component={LinkView} options={{title: "View Link"}}/>
+            <Stack.Screen name="LinkAdd" component={LinkAdd} options={{title: "Add Link"}}/>
         </Stack.Navigator>
     );
 }
