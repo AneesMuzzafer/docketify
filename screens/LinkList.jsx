@@ -16,7 +16,7 @@ const LinkList = ({ navigation }) => {
                     </Pressable>
                 ))
             }
-            <AddButton onPress={() => dispatch(addLink("afsdf"))} />
+            <AddButton onPress={() => navigation.navigate("LinkAdd")} />
         </View>
     );
 }
