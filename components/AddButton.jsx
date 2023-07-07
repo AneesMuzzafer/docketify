@@ -1,12 +1,14 @@
 import { Pressable, StyleSheet, Text } from "react-native";
 import { FAB } from "react-native-paper";
 
-const AddButton = ({ onPress }) => {
+const AddButton = ({ onPress, label = "Add Link" }) => {
     return (
         <FAB
             icon="plus"
             style={styles.addButton}
             onPress={onPress}
+            uppercase
+            label={label}
         />
     );
 }

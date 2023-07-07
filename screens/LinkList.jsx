@@ -13,7 +13,7 @@ const LinkList = ({ navigation }) => {
             <ScrollView>
                 {
                     links.map((l, i) => (
-                        <List.Item key={l.id + i} onPress={() => navigation.navigate("LinkView", { index: i })}
+                        <List.Item key={l.id + i} onPress={() => navigation.navigate("LinkView", { id: l.id })}
                             style={{ borderBottomColor: "#f3edf6", borderBottomWidth: 0.5 }}
                             title={l.name}
                             description={l.vendorId}
@@ -34,19 +34,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         padding: 10
     },
-    addButton: {
-        position: "absolute",
-        bottom: 30,
-        right: 30,
-        zIndex: 10,
-        width: 60,
-        height: 60,
-        backgroundColor: "pink",
-        borderRadius: 30,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center"
-    }
 });
 
 export default LinkList;

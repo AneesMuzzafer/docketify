@@ -9,10 +9,10 @@ export const ticketSlice = createSlice({
     initialState,
     reducers: {
         addTicket: (state, action) => {
-            state.links = [...state.links, action.payload];
+            state.tickets = [...state.tickets, action.payload];
         },
         deleteTicket: (state, action) => {
-            state.links = state.links.filter(l => l.id !== action.id);
+            state.tickets = state.tickets.filter(t => t.id !== action);
         },
     },
 });

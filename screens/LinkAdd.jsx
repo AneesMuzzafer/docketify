@@ -67,7 +67,7 @@ const LinkAdd = ({navigation}) => {
                     </View>
                 </View>
             </View>
-            <View style={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
+            <View style={{ display: "flex", flexDirection: "row", justifyContent: "center", marginBottom: 20 }}>
                 <Button style={{ width: "70%" }} mode="contained" onPress={handleSave}>
                     Save
                 </Button>
