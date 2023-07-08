@@ -4,21 +4,7 @@ import { useDispatch } from "react-redux";
 import { addLink } from "../state/links";
 import { TextInput, Text, Button } from 'react-native-paper';
 import DropDown from "react-native-paper-dropdown";
-
-const vendorList = [
-    {
-        label: "Sanguine",
-        value: "sanguine",
-    },
-    {
-        label: "STPL",
-        value: "stpl",
-    },
-    {
-        label: "SNTPL",
-        value: "sntpl",
-    },
-];
+import { vendorList } from "../utils/Utils";
 
 const LinkAdd = ({navigation}) => {
     const dispatch = useDispatch();

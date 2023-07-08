@@ -23,6 +23,7 @@ const TicketAdd = ({ navigation, route }) => {
     const [ticket, setTicket] = React.useState({
         id: new Date().toISOString(),
         link: "",
+        vendorId: "",
         startAt: new Date(),
         endAt: new Date()
     });
@@ -36,6 +37,7 @@ const TicketAdd = ({ navigation, route }) => {
             setTicket({
                 id: new Date().toISOString(),
                 link: links.find(l => l.id === linkId).id,
+                vendorId: links.find(l => l.id === linkId).vendorId,
                 startAt: new Date(),
                 endAt: new Date()
             })
@@ -86,7 +88,7 @@ const TicketAdd = ({ navigation, route }) => {
                             showDropDown={() => setShowDropDown(true)}
                             onDismiss={() => setShowDropDown(false)}
                             value={ticket.link}
-                            setValue={(e) => setTicket((p) => ({ ...p, link: e }))}
+                            setValue={(e) => setTicket((p) => ({ ...p, link: e, vendorId: links.find(l => l.id === e).vendorId }))}
                             list={linkList}
                         />
                     </View>

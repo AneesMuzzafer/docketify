@@ -12,7 +12,7 @@ export const ticketSlice = createSlice({
             state.tickets = [...state.tickets, action.payload];
         },
         deleteTicket: (state, action) => {
-            state.tickets = state.tickets.filter(t => t.id !== action);
+            state.tickets = state.tickets.filter(t => t.id !== action.payload);
         },
     },
 });

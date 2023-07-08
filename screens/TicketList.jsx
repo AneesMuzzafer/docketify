@@ -2,6 +2,7 @@ import { Pressable, ScrollView, StyleSheet, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import AddButton from "../components/AddButton";
 import { List } from 'react-native-paper';
+import { deleteTicket } from "../state/tickets";
 
 const TicketList = ({navigation}) => {
     const dispatch = useDispatch();
@@ -17,7 +18,7 @@ const TicketList = ({navigation}) => {
                             style={{ borderBottomColor: "#f3edf6", borderBottomWidth: 0.5 }}
                             title={links.find(l => l.id === t.link).name}
                             description={(new Date(t.startAt).toLocaleString([], {year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit'}) + "  --  " + new Date(t.endAt).toLocaleString([], {year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit'}))}
-                            right={props => <Pressable style={{ display: "flex", justifyContent: "center", alignItems: "center" }} onPress={() => dispatch(deleteLink(l.id))}><List.Icon  {...props} icon="delete" /></Pressable>}
+                            right={props => <Pressable style={{ display: "flex", justifyContent: "center", alignItems: "center" }} onPress={() => dispatch(deleteTicket(t.id))}><List.Icon  {...props} icon="delete" /></Pressable>}
                         />
 
                     ))
