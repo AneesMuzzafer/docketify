@@ -6,13 +6,7 @@ import { Text, Button, Surface } from 'react-native-paper';
 import DropDown from "react-native-paper-dropdown";
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { addTicket } from "../state/tickets";
-
-function diff_hours(dt2, dt1) {
-    var diff = (dt2.getTime() - dt1.getTime()) / 1000;
-    diff /= (60 * 60);
-    return diff.toFixed(2);
-
-}
+import { diff_hours } from "../utils/Utils";
 
 const TicketAdd = ({ navigation, route }) => {
     const dispatch = useDispatch();
@@ -30,8 +24,6 @@ const TicketAdd = ({ navigation, route }) => {
 
     const linkId = route.params?.linkId;
 
-    console.log(linkId, ticket);
-
     React.useEffect(() => {
         if (linkId) {
             setTicket({
@@ -45,8 +37,17 @@ const TicketAdd = ({ navigation, route }) => {
     }, [linkId]);
 
     const [showDropDown, setShowDropDown] = React.useState(false);
+    const [err, setErr] = React.useState("");
 
     const handleSave = () => {
+        if (!ticket.link || (diff_hours(ticket.endAt, ticket.startAt)) <= 0) {
+            setErr("Please insert correct details into the required fields.");
+            setTimeout(() => {
+                setErr("");
+            }, 2000)
+            return;
+        }
+
         dispatch(addTicket(ticket));
         navigation.goBack();
     }
@@ -114,7 +115,9 @@ const TicketAdd = ({ navigation, route }) => {
                         <Text >Total Downtime:  </Text><Text variant="labelLarge" style={{ color: "indigo" }}>{diff_hours(ticket.endAt, ticket.startAt)}</Text><Text>  Hours</Text>
                     </Surface>
                 </View>
-
+                {
+                    err && <Text style={{ paddingTop: 10, paddingBottom: 10, color: "red", fontStyle: "italic" }}>{err}</Text>
+                }
                 {show && (
                     <DateTimePicker
                         testID="dateTimePicker"

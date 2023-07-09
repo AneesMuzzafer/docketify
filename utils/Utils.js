@@ -1,14 +1,21 @@
 export const vendorList = [
     {
         label: "Sanguine",
-        value: "sanguine",
+        value: "Sanguine",
     },
     {
         label: "STPL",
-        value: "stpl",
+        value: "STPL",
     },
     {
         label: "SNTPL",
-        value: "sntpl",
+        value: "SNTPL",
     },
 ];
+
+export const diff_hours = (dt2, dt1) => {
+    var diff = (dt2.getTime() - dt1.getTime()) / 1000;
+    diff /= (60 * 60);
+    const res = diff.toFixed(2);
+    return res;
+}

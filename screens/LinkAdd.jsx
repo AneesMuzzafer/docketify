@@ -6,7 +6,7 @@ import { TextInput, Text, Button } from 'react-native-paper';
 import DropDown from "react-native-paper-dropdown";
 import { vendorList } from "../utils/Utils";
 
-const LinkAdd = ({navigation}) => {
+const LinkAdd = ({ navigation }) => {
     const dispatch = useDispatch();
     const [link, setLink] = React.useState({
         id: new Date().toISOString(),
@@ -16,8 +16,17 @@ const LinkAdd = ({navigation}) => {
     });
 
     const [showDropDown, setShowDropDown] = React.useState(false);
+    const [err, setErr] = React.useState("");
 
     const handleSave = () => {
+        if (!link.name || !link.vendorId) {
+            setErr("Please insert correct details into the required fields.");
+            setTimeout(() => {
+                setErr("");
+            }, 2000)
+            return;
+        }
+
         dispatch(addLink(link));
         navigation.goBack();
     }
@@ -52,6 +61,9 @@ const LinkAdd = ({navigation}) => {
                         />
                     </View>
                 </View>
+                {
+                    err && <Text style={{ paddingTop: 10, paddingBottom: 10, color: "red", fontStyle: "italic" }}>{err}</Text>
+                }
             </View>
             <View style={{ display: "flex", flexDirection: "row", justifyContent: "center", marginBottom: 20 }}>
                 <Button style={{ width: "70%" }} mode="contained" onPress={handleSave}>
