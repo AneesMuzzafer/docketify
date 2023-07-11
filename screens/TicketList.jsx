@@ -4,11 +4,19 @@ import AddButton from "../components/AddButton";
 import { List } from 'react-native-paper';
 import { deleteTicket } from "../state/tickets";
 import { diff_hours } from "../utils/Utils";
+import useConfirmation from "../components/useConfirmation";
 
 const TicketList = ({navigation}) => {
     const dispatch = useDispatch();
     const tickets = useSelector(state => state.tickets.tickets);
     const links = useSelector(state => state.links.links);
+
+    const Confirmation = useConfirmation({
+        title: "Do you want to delete this ticket?",
+        content: "This action is irreversible!",
+        onConfirm: (id) => { dispatch(deleteTicket(t.id)); },
+        onCancel: () => console.log("Cancelled"),
+    })
 
     return (
         <View style={styles.container}>
@@ -25,6 +33,7 @@ const TicketList = ({navigation}) => {
                     ))
                 }
             </ScrollView>
+            {Confirmation.component}
             <AddButton label="Add Ticket" onPress={() => navigation.navigate("TicketAddEdit")} />
         </View>
     );
