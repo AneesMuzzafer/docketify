@@ -5,6 +5,7 @@ import AddButton from "../components/AddButton";
 import { Dialog, List, Portal, Button } from 'react-native-paper';
 import React from "react";
 import useConfirmation from "../components/useConfirmation";
+import { deleteTickets } from "../state/tickets";
 
 const LinkList = ({ navigation }) => {
     const dispatch = useDispatch();
