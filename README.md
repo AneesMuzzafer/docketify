@@ -6,10 +6,10 @@ This repository contains the source code for Docketefy, a mobile app developed i
 
 Here are four screenshots of the Docketefy app:
 
-1. ![Screenshot 1](/screenshots/image_1.png?raw=true)
-2. ![Screenshot 2](/screenshots/image_2.png?raw=true)
-3. ![Screenshot 3](/screenshots/image_3.png?raw=true)
-4. ![Screenshot 4](/screenshots/image_4.png?raw=true)
+![Screenshot 1](/screenshots/image_1.png?raw=true)
+![Screenshot 2](/screenshots/image_2.png?raw=true)
+![Screenshot 3](/screenshots/image_3.png?raw=true)
+![Screenshot 4](/screenshots/image_4.png?raw=true)
 
 ## Usage
 
